@@ -5,10 +5,10 @@ variable "github_token" {
 
 variable "github_org" {
   type = string
+  default = "mark-icy"
 }
 
 variable "github_repository" {
   type = string
-  default = "github.com/mark-icy/infra-new"
-	
+  default = "infra-new"
 }
