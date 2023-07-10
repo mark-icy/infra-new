@@ -17,16 +17,32 @@ kind: HelmRelease
 metadata:
   name: podinfo
   namespace: podinfo
-spec: 
-  interval: 1h
+spec:
+  releaseName: podinfo
   chart:
     spec:
       chart: podinfo
       sourceRef:
         kind: HelmRepository
         name: podinfo
-        namespace: podinfo
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
+    redis:
+      enabled: true
+      repository: public.ecr.aws/docker/library/redis
+      tag: 7.0.6
     ingress:
       enabled: true
       className: nginx
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
