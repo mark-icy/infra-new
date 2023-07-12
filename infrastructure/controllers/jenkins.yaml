@@ -27,11 +27,23 @@ spec:
         kind: HelmRepository
         name: jenkins
         namespace: jenkins
-  values:
-    controller:
-      jenkinsUrlProtocol: http://
-      ingress:
-        enabled: true
-        apiVersion: networking.k8s.io/v1
-        hostName: localhost
-    
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins
+  namespace: jenkins
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: jenkins
+            port:
+              number: 8080
