@@ -29,8 +29,10 @@ spec:
         namespace: jenkins
   values:
     controller:
+      jenkinsUrlProtocol: http://
       ingress:
         enabled: true
         apiVersion: networking.k8s.io/v1
+        hostName: localhost
         path: /jenkins
     
