@@ -27,3 +27,10 @@ spec:
         kind: HelmRepository
         name: jenkins
         namespace: jenkins
+  values:
+    controller:
+      ingress:
+        enabled: true
+        apiVersion: networking.k8s.io/v1
+        path: /jenkins
+    
