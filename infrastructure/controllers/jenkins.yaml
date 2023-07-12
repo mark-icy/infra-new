@@ -40,7 +40,7 @@ spec:
   - host: localhost
     http:
       paths:
-      - path: /
+      - path: /jenkins
         pathType: ImplementationSpecific
         backend:
           service:
