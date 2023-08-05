@@ -30,8 +30,6 @@ spec:
   values:
     controller:
       jenkinsUriPrefix: "/jenkins"
-      additionalPlugins:
-        - github:1.37.2
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
