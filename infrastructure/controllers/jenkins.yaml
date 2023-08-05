@@ -18,7 +18,7 @@ metadata:
   name: jenkins
   namespace: jenkins
 spec:
-  interval: 1h
+  interval: 10m0s
   chart:
     spec:
       chart: jenkins
