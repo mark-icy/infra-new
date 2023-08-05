@@ -33,6 +33,7 @@ spec:
         type: "NodePort"
       config:
         ssl-redirect: "false"
+        hsts: "false"
     admissionWebhooks:
       enabled: false
 
