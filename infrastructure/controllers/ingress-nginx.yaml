@@ -34,3 +34,4 @@ spec:
       config:
         ssl-redirect: "false"
         hsts: "false"
+        hsts-max-age: "0"
