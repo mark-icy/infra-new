@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
   - ingress-nginx.yaml
   - jenkins.yaml
+spec:
+  timeout: 5m0s
+  interval: 10m0s
