@@ -31,6 +31,8 @@ spec:
     controller:
       service:
         type: "NodePort"
+      config:
+        hsts: "false"
     admissionWebhooks:
       enabled: false
 
