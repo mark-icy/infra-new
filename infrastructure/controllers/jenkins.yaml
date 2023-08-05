@@ -33,6 +33,8 @@ kind: Ingress
 metadata:
   name: jenkins
   namespace: jenkins
+  annotations:
+  ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
