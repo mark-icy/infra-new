@@ -27,6 +27,9 @@ spec:
         kind: HelmRepository
         name: jenkins
         namespace: jenkins
+  values:
+    controller:
+      jenkinsUriPrefix: "/jenkins"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
