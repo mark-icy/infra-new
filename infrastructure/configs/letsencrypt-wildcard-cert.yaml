@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: letsencrypt-wildcard-cert
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-dev
+spec:
+  acme:
+    email: mahikgot@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-dev
+    solvers:
+    - selector:
+        dnsZones:
+          - "markguiang.dev"
+      dns01:
+        cloudflare:
+          email: mahikgot@gmail.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
