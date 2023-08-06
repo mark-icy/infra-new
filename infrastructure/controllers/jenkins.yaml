@@ -35,6 +35,10 @@ metadata:
   namespace: jenkins
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+      - jenkins.markguiang.dev
+      secretName: jenkins-tls
   rules:
   - host: jenkins.markguiang.dev
     http:
