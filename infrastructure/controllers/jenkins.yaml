@@ -38,7 +38,7 @@ spec:
   tls:
     - hosts:
       - jenkins.markguiang.dev
-      secretName: letsencrypt
+      secretName: letsencrypt-prod
   rules:
   - host: jenkins.markguiang.dev
     http:
