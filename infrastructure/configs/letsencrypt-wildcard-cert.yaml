@@ -12,7 +12,7 @@ spec:
     email: mahikgot@gmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-dev
+      name: letsencrypt-dev-ci
     solvers:
     - selector:
         dnsZones:
