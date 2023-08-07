@@ -28,7 +28,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: letsencrypt-prod
-  namespace: letsencrypt-prod
+  namespace: letsencrypt
 spec:
   # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
   secretName: letsencrypt-prod
