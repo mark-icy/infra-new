@@ -6,6 +6,7 @@ resources:
   - cert-manager.yaml
   - sealed-secrets.yaml
   - secret-replicator.yaml
+  - metallb.yaml
 spec:
   timeout: 5m0s
   interval: 10m0s
