@@ -22,11 +22,14 @@ spec:
   chart:
     spec:
       chart: jenkins
-      version: '4.3.30'
+      version: '4.5.0'
       sourceRef:
         kind: HelmRepository
         name: jenkins
         namespace: jenkins
+  values:
+    agent:
+      jenkinsUrl: https://jenkins.markguiang.dev
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
