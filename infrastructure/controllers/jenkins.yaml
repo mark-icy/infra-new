@@ -27,9 +27,9 @@ spec:
         kind: HelmRepository
         name: jenkins
         namespace: jenkins
-  values:
-    controller:
-      jenkinsUrl: https://jenkins.markguiang.dev
+  valuesFrom:
+    - kind: ConfigMap
+      name: jenkins
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

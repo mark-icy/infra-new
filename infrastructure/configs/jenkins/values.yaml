@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins
+  namespace: jenkins
+data:
+    values.yaml: |-
+      controller:
+        jenkinsUrl: https://jenkins.markguiang.dev
