@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: jenkins
+  name: jenkins-values
   namespace: jenkins
 data:
     values.yaml: |-
