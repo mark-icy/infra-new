@@ -9,9 +9,9 @@ data:
         jenkinsUrl: https://jenkins.markguiang.dev
         additionalExistingSecrets: 
           - name: jenkins-credentials-icy
-            keyName: user-username-icy
+            keyName: username
           - name: jenkins-credentials-icy
-            keyName: user-password-icy
+            keyName: password
         JCasC:
           securityRealm: |-
             local:
@@ -19,7 +19,7 @@ data:
                 - id: "${chart-admin-username}"
                   name: "Jenkins Admin"
                   password: "${chart-admin-password}"
-                - id: "${user-username-icy}"
-                  name: "${user-username-icy} account"
-                  password: "${user-password-icy}"
+                - id: "${jenkins-credentials-icy-username}"
+                  name: "${jenkins-credentials-icy-username} account"
+                  password: "${jenkins-credentials-icy-password}"
 
