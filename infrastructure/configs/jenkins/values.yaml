@@ -7,3 +7,8 @@ data:
     values.yaml: |-
       controller:
         jenkinsUrl: https://jenkins.markguiang.dev
+        additionalExistingSecrets: 
+          - name: jenkins-credentials-icy
+            keyName: user-username-icy
+          - name: jenkins-credentials-icy
+            keyName: user-password-icy
