@@ -4,4 +4,3 @@ resources:
   - letsencrypt-wildcard-cert.yaml
   - letsencrypt-wildcard-cert-prod.yaml
   - ./metallb
-  - ./jenkins
