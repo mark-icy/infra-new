@@ -12,3 +12,14 @@ data:
             keyName: user-username-icy
           - name: jenkins-credentials-icy
             keyName: user-password-icy
+        JCasC:
+          securityRealm: |-
+            local:
+              users:
+                - id: "${chart-admin-username}"
+                  name: "Jenkins Admin"
+                  password: "${chart-admin-password}"
+                - id: "${user-username-icy}"
+                  name: "${user-username-icy} account"
+                  password: "${user-password-icy}"
+
