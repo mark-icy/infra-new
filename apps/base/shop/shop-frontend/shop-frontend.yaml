@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: shop-frontend
@@ -29,3 +29,26 @@ spec:
   install:
     remediation:
       retries: -1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shop-frontend
+  namespace: shop
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - shop.markguiang.dev
+      secretName: letsencrypt-prod
+  rules:
+  - host: shop.markguiang.dev
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: shop-frontend
+            port:
+              number: 80
