@@ -7,8 +7,8 @@ data:
     values.yaml: |-
       controller:
         jenkinsUrl: https://jenkins.markguiang.dev
-	additionalPlugins:
-	  - GitHub:1.37.3
+        additionalPlugins:
+          - GitHub:1.37.3
         additionalExistingSecrets: 
           - name: jenkins-credentials-icy
             keyName: username
