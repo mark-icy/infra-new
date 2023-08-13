@@ -7,7 +7,11 @@ data:
     values.yaml: |-
       controller:
         jenkinsUrl: https://jenkins.markguiang.dev
-        additionalPlugins:
+        installPlugins:
+          - kubernetes:3937.vd7b_82db_e347b_
+          - workflow-aggregator:596.v8c21c963d92d
+          - git:5.2.0
+          - configuration-as-code:1647.ve39ca_b_829b_42
           - github:1.37.3
         additionalExistingSecrets: 
           - name: jenkins-credentials-icy
