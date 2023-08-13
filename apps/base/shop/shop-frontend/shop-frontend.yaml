@@ -1,0 +1,54 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: shop-frontend
+  namespace: flux-system
+spec:
+  interval: 5m 
+  url: https://github.com/mark-icy/shop-frontend
+  ref:
+    branch: main
+  ignore: |
+    /*
+    !/chart/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: shop-frontend
+  namespace: shop
+spec:
+  chart:
+    spec:
+      chart: ./chart/shop-frontend
+      sourceRef:
+        kind: GitRepository
+        name: shop-frontend
+        namespace: flux-system
+  interval: 5m
+  install:
+    remediation:
+      retries: -1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shop-frontend
+  namespace: shop
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - shop.markguiang.dev
+      secretName: letsencrypt-prod
+  rules:
+  - host: shop.markguiang.dev
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: shop-frontend
+            port:
+              number: 80
