@@ -13,6 +13,7 @@ data:
           - git:5.2.0
           - configuration-as-code:1647.ve39ca_b_829b_42
           - github:1.37.3
+          - job-dsl:1.84
         additionalExistingSecrets: 
           - name: jenkins-credentials-icy
             keyName: username
