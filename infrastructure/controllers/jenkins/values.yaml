@@ -14,6 +14,7 @@ data:
           - configuration-as-code:1670.v564dc8b_982d0
           - github:1.37.3
           - job-dsl:1.84
+          - javax-mail-api:1.6.2-9
         additionalExistingSecrets: 
           - name: jenkins-credentials-icy
             keyName: username
