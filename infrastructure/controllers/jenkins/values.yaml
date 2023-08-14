@@ -20,6 +20,22 @@ data:
           - name: jenkins-credentials-icy
             keyName: password
         JCasC:
+          jobs:
+            - script: >
+              job('seed-job') {
+                  scm {
+                      github('mark-icy/ci-jobs')
+                  }
+                  steps {
+                      dsl {
+                          // Fetch all .groovy files in the repository and process them
+                          def groovyFiles = findFiles { it.endsWith('.groovy') }
+                          groovyFiles.each { file ->
+                              external(file)
+                          }
+                      }
+                  }
+              }
           securityRealm: |-
             local:
               users:
