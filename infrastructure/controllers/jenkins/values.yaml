@@ -21,6 +21,9 @@ data:
         - name: jenkins-credentials-icy
           keyName: password
       JCasC:
+        security:
+          globalJobDslSecurityConfiguration:
+            useScriptSecurity: false
         jobs:
           - script: >
               job('example') {
