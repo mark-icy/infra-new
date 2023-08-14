@@ -52,10 +52,8 @@ data:
                     }
                     steps {
                       dsl {
-                        def groovyFiles = findFiles { it.endsWith('.groovy') }
-                        groovyFiles.each { file ->
-                          external(file)
-                        }
+                        external('hello.groovy')
+                        removeAction('DELETE')
                       }
                     }
                   }
