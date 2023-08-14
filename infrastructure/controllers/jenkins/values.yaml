@@ -4,63 +4,61 @@ metadata:
   name: jenkins-values
   namespace: jenkins
 data:
-    values.yaml: |-
-      controller:
-        jenkinsUrl: https://jenkins.markguiang.dev
-        installPlugins:
-          - kubernetes:3985.vd26d77b_2a_48a_
-          - workflow-aggregator:596.v8c21c963d92d
-          - git:5.2.0
-          - configuration-as-code:1670.v564dc8b_982d0
-          - github:1.37.3
-          - job-dsl:1.84
-          - javax-mail-api:1.6.2-9
-        additionalExistingSecrets: 
-          - name: jenkins-credentials-icy
-            keyName: username
-          - name: jenkins-credentials-icy
-            keyName: password
-        JCasC:
-          jobs:
-            - script: | 
-                job('example') {
-                  logRotator(-1, 10)
-                  jdk('Java 8')
+  values.yaml: |-
+    controller:
+      jenkinsUrl: https://jenkins.markguiang.dev
+      installPlugins:
+        - kubernetes:3985.vd26d77b_2a_48a_
+        - workflow-aggregator:596.v8c21c963d92d
+        - git:5.2.0
+        - configuration-as-code:1670.v564dc8b_982d0
+        - github:1.37.3
+        - job-dsl:1.84
+        - javax-mail-api:1.6.2-9
+      additionalExistingSecrets:
+        - name: jenkins-credentials-icy
+          keyName: username
+        - name: jenkins-credentials-icy
+          keyName: password
+      JCasC:
+        jobs:
+          - script: |
+              job('example') {
+                logRotator(-1, 10)
+                jdk('Java 8')
+                scm {
+                  github('jenkinsci/job-dsl-plugin', 'master')
+                }
+                triggers {
+                  githubPush()
+                }
+                steps {
+                  gradle('clean build')
+                }
+                publishers {
+                  archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
+                }
+              }
+          - script: |
+              job('seed-job') {
                   scm {
-                    github('jenkinsci/job-dsl-plugin', 'master')
-                  }
-                  triggers {
-                    githubPush()
+                      github('mark-icy/ci-jobs')
                   }
                   steps {
-                    gradle('clean build')
+                      dsl {
+                          def groovyFiles = findFiles { it.endsWith('.groovy') }
+                          groovyFiles.each { file ->
+                              external(file)
+                          }
+                      }
                   }
-                  publishers {
-                    archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
-                  }
-                }
-            - script: |
-                job('seed-job') {
-                    scm {
-                        github('mark-icy/ci-jobs')
-                    }
-                    steps {
-                        dsl {
-                            // Fetch all .groovy files in the repository and process them
-                            def groovyFiles = findFiles { it.endsWith('.groovy') }
-                            groovyFiles.each { file ->
-                                external(file)
-                            }
-                        }
-                    }
-                }
-          securityRealm: |-
-            local:
-              users:
-                - id: "${chart-admin-username}"
-                  name: "Jenkins Admin"
-                  password: "${chart-admin-password}"
-                - id: "${jenkins-credentials-icy-username}"
-                  name: "${jenkins-credentials-icy-username} account"
-                  password: "${jenkins-credentials-icy-password}"
-
+              }
+        securityRealm: |-
+          local:
+            users:
+              - id: "${chart-admin-username}"
+                name: "Jenkins Admin"
+                password: "${chart-admin-password}"
+              - id: "${jenkins-credentials-icy-username}"
+                name: "${jenkins-credentials-icy-username} account"
+                password: "${jenkins-credentials-icy-password}"
