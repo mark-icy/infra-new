@@ -53,9 +53,9 @@ data:
                     steps {
                       dsl {
                         def groovyFiles = findFiles { it.endsWith('.groovy') }
-                          groovyFiles.each { file ->
-                            external(file)
-                          }
+                        groovyFiles.each { file ->
+                          external(file)
+                        }
                       }
                     }
                   }
