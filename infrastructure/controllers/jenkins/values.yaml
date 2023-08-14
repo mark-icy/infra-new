@@ -21,7 +21,7 @@ data:
         - name: jenkins-credentials-icy
           keyName: password
       JCasC:
-        configScripts: 
+        configScripts:
           seed-jobs: |
             security:
               globalJobDslSecurityConfiguration:
@@ -47,17 +47,17 @@ data:
                   }
               - script: >
                   job('seed-job') {
-                      scm {
-                          github('mark-icy/ci-jobs')
-                      }
-                      steps {
-                          dsl {
-                              def groovyFiles = findFiles { it.endsWith('.groovy') }
-                              groovyFiles.each { file ->
-                                  external(file)
-                              }
+                    scm {
+                      github('mark-icy/ci-jobs')
+                    }
+                    steps {
+                      dsl {
+                        def groovyFiles = findFiles { it.endsWith('.groovy') }
+                          groovyFiles.each { file ->
+                            external(file)
                           }
                       }
+                    }
                   }
         securityRealm: |-
           local:
