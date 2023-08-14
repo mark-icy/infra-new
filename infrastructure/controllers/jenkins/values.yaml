@@ -21,7 +21,7 @@ data:
             keyName: password
         JCasC:
           jobs:
-            - script: >
+            - script: |
               job('seed-job') {
                   scm {
                       github('mark-icy/ci-jobs')
