@@ -15,6 +15,7 @@ data:
         - github:1.37.3
         - job-dsl:1.84
         - javax-mail-api:1.6.2-9
+        - pipeline-utility-steps:2.16.0
       additionalExistingSecrets:
         - name: jenkins-credentials-icy
           keyName: username
