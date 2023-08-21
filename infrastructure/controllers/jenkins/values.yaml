@@ -41,7 +41,7 @@ data:
                     }
                   }
               - script: >
-                pipelineJob('seed-job') {
+                pipelineJob('seed-pipeline') {
                   definition {
                     cpsScm {
                       scm {
