@@ -40,22 +40,22 @@ data:
                       }
                     }
                   }
-              - script: >
-                pipelineJob('seed-pipeline') {
-                  definition {
-                    cpsScm {
-                      scm {
-                        git {
-                          remote {
-                            url('https://github.com/mark-icy/ci-jobs.git')
-                          }
-                          branch('main')
-                        }
-                      }
-                      scriptPath('./seed-job/Jenkinsfile')
-                    }
-                  }
-                }
+              # - script: >
+              #   pipelineJob('seed-pipeline') {
+              #     definition {
+              #       cpsScm {
+              #         scm {
+              #           git {
+              #             remote {
+              #               url('https://github.com/mark-icy/ci-jobs.git')
+              #             }
+              #             branch('main')
+              #           }
+              #         }
+              #         scriptPath('./seed-job/Jenkinsfile')
+              #       }
+              #     }
+              #   }
         securityRealm: |-
           local:
             users:
