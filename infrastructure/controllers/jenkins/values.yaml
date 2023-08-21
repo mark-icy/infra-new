@@ -28,34 +28,34 @@ data:
               globalJobDslSecurityConfiguration:
                 useScriptSecurity: false
             jobs:
+              # - script: >
+              #     job('seed-job') {
+              #       scm {
+              #         github('mark-icy/ci-jobs')
+              #       }
+              #       steps {
+              #         dsl {
+              #           external('hello.groovy')
+              #           removeAction('DELETE')
+              #         }
+              #       }
+              #     }
               - script: >
-                  job('seed-job') {
-                    scm {
-                      github('mark-icy/ci-jobs')
-                    }
-                    steps {
-                      dsl {
-                        external('hello.groovy')
-                        removeAction('DELETE')
+                  pipelineJob('seed-pipeline') {
+                    definition {
+                      cpsScm {
+                        scm {
+                          git {
+                            remote {
+                              url('https://github.com/mark-icy/ci-jobs.git')
+                            }
+                            branch('main')
+                          }
+                        }
+                        scriptPath('./seed-job/Jenkinsfile')
                       }
                     }
                   }
-              # - script: >
-              #   pipelineJob('seed-pipeline') {
-              #     definition {
-              #       cpsScm {
-              #         scm {
-              #           git {
-              #             remote {
-              #               url('https://github.com/mark-icy/ci-jobs.git')
-              #             }
-              #             branch('main')
-              #           }
-              #         }
-              #         scriptPath('./seed-job/Jenkinsfile')
-              #       }
-              #     }
-              #   }
         securityRealm: |-
           local:
             users:
