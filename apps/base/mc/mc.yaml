@@ -30,6 +30,10 @@ spec:
     resources:
       requests:
         memory: 2048Mi
+    persistence:
+      dataDir:
+        enabled: true
+        Size: 5Gi
     minecraftServer:
       eula: "TRUE"
       type: "PAPER"
