@@ -33,7 +33,7 @@ spec:
       paperDownloadUrl: "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/159/downloads/paper-1.20.1-159.jar"
       difficulty: normal
       allowNether: true
-      downloadWorldUrl: "https://drive.google.com/uc?export=download&id=1JAkOaV5qJ32RIaLC_RpRYXru8AJD7gFW"
+      downloadWorldUrl: "https://www.dropbox.com/scl/fi/m0om5352qfj0gjhbbk3qf/world.zip?rlkey=s86fbp37175iq2bk1qlp8p04m&dl=1"
       removeOldMods: true
       onlineMode: false
       enforceSecureProfile: false
