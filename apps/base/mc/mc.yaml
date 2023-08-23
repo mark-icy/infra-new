@@ -27,6 +27,9 @@ spec:
         name: mc
         namespace: flux-system
   values:
+    resources:
+      requests:
+        memory: 2048Mi
     minecraftServer:
       eula: "TRUE"
       type: "PAPER"
