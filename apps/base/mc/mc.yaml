@@ -41,4 +41,4 @@ spec:
       onlineMode: false
       enforceSecureProfile: false
       serviceType: LoadBalancer
-      jvmOpts: "-e MEMORY=2G"
+      memory: 2048M
