@@ -1,0 +1,13 @@
+site_name: Infrastructure Project
+repo_url: https://github.com/mark-icy/infra-new
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
