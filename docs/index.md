@@ -4,11 +4,10 @@ Welcome to our project! This is a monorepo for managing infrastructure�
 
 ## Technologies Used
 
-- Terraform: Used for provisioning our cloud resources.
+- Terraform: Used for provisioning our cloud resources and instantiating the kubernetes cluster.
 - Kubernetes: Our applications are containerized and managed using Kubernetes.
 - Flux: Our GitOps tool of choice. It ensures our Kubernetes cluster state matches the state defined in this repository.
 - Jenkins: Used for continuous deployment of our applications.
-- MetalLB: Implemented as the load balancer for our Kubernetes cluster.
 - Cert-Manager: Used for managing Let's Encrypt SSL certificates. 
 - Cloudflare Tunnels: Used to host apps directly from our local server (jenkins.markguiang.dev and shop.markguiang.dev)
 
