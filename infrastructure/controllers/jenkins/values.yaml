@@ -17,6 +17,7 @@ data:
         - javax-mail-api:1.6.2-9
         - pipeline-utility-steps:2.16.0
         - generic-webhook-trigger:1.87.0
+        - docker-workflow:572.v950f58993843
       additionalExistingSecrets:
         - name: jenkins-credentials-icy
           keyName: username
